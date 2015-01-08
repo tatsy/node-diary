@@ -12,8 +12,6 @@ var connect = require('./lib/connect.js');
 app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(bp.urlencoded({extended: false}));
-app.use(bp.json());
 
 app.get('/', routes.get);
 
