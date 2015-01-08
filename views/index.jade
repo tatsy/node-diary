@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    .container
+        .row
+            .col-md-6
+                form(action="/", enctype="multipart/form-data", method="post")
+                    textarea#code(name="code", rows="10", cols="50") #{fields.code}
+                    .control-group
+                        input#outfile(name="outfile", value="#{fields.outfile}")
+                        button#save.btn.btn-default(type="button") Save
+                    .control-group
+                        input#media(type="file", name="upload")
+                        button#upload.btn.btn-default(type="submit") Upload
+                ul
+                    each val in media
+                        li= val
+            .col-md-6
+                div#result

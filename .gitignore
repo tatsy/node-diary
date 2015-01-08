@@ -1,0 +1,9 @@
+node_modules/*
+
+public/upload/*
+public/css/bootstrap*
+public/js/bootstrap*
+public/js/jquery*
+public/fonts/*
+
+*.html

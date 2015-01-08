@@ -1,0 +1,14 @@
+{
+  "name": "Diary",
+  "version": "0.0.1",
+  "description": "Diary",
+  "dependencies": {
+    "body-parser": "^1.10.1",
+    "express": "^4.10.7",
+    "jade": "^1.8.2",
+    "json": "^9.0.2",
+    "multiparty": "^4.1.0",
+    "node-markdown": "^0.1.1",
+    "socket.io": "^1.2.1"
+  }
+}
