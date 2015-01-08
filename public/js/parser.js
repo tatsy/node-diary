@@ -15,9 +15,14 @@ $(document).ready(function(){
         return false;
     });
 
-    socket.on('connected', function() {
+    socket.on('connected', function(data) {
+        console.log(data.files);
+        $('#media-list').empty();
+        $.each(data.files, function() {
+            $('#media-list').append($('<li>').text(this));
+        });
         var md = $('#code').val();
-        socket.emit('code update', md);        
+        socket.emit('code update', md);
     })
 
     socket.on('code converted', function(html) {

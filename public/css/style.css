@@ -4,6 +4,36 @@ body {
     padding-bottom: 20px;
 }
 
+textarea {
+    font-size: 10pt;
+    font-family: VL Gothic, MS Gothic, sans-serif;
+}
+
 .navbar {
     margin-bottom: 20px;
+}
+
+td { padding: 3px 15px 3px 15px; }
+th { padding: 3px 15px 3px 15px; }
+
+thead tr {
+    background: #999999;
+    color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #cccccc;
+    border-top: 1px #000 solid;
+}
+
+tbody tr:nth-child(odd)  {
+    background-color: #eeeeee;
+    border-top: 1px #000 solid;
+}
+
+div#item-holder {
+    background: #eee;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px #ccc solid;
 }

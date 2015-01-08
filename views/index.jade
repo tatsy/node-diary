@@ -4,16 +4,25 @@ block content
     .container
         .row
             .col-md-6
-                form(action="/", enctype="multipart/form-data", method="post")
-                    textarea#code(name="code", rows="10", cols="50") #{fields.code}
-                    .control-group
-                        input#outfile(name="outfile", value="#{fields.outfile}")
+                #item-holder
+                    form(action="/", enctype="multipart/form-data", method="post")
+                        .form-group
+                            label(for="code") Markdown Code
+                            textarea#code.form-control(name="code", rows="10", cols="50") #{fields.code}
+                        .form-group
+                            label(for="outfile") Output HTML
+                            input#outfile.form-control(name="outfile", value="#{fields.outfile}")        
                         button#save.btn.btn-default(type="button") Save
-                    .control-group
-                        input#media(type="file", name="upload")
+                    
+                        .form-group
+                            label(for="media") Upload Media
+                            input#media(type="file", name="upload")
                         button#upload.btn.btn-default(type="submit") Upload
-                ul
-                    each val in media
-                        li= val
+                    
+                #item-holder
+                    strong Media List
+                    ol#media-list
+                        each val in media
+                            li= val
             .col-md-6
-                div#result
+                #result
