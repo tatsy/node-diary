@@ -4,6 +4,7 @@
   "description": "Diary",
   "dependencies": {
     "express": "^4.10.7",
+    "highlight.js": "^8.4.0",
     "jade": "^1.8.2",
     "json": "^9.0.2",
     "marked": "^0.3.2",

@@ -29,3 +29,18 @@ $(document).ready(function() {
         $('#result').html(html);
     });
 });
+
+function onClickPlayButton(button) {
+    console.log("click");
+    var buttonText = $(button).text();
+    console.log(buttonText);
+    console.log($(button).parents());
+    $.each($(button).parents().find('table').find('video'), function() {
+        if(buttonText == "Play") {
+            this.play();
+        } else {
+            this.pause();
+        }
+    });
+    $(this).text(buttonText === "Play" ? "Pause" : "Play");
+}
