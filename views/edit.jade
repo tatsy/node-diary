@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    .container
+        h1= fields.title
+        .row
+            .col-md-6
+                #item-holder
+                    form(action="/", enctype="multipart/form-data", method="post")
+                        .form-group
+                            label(for="code") Markdown Code
+                            textarea#code.form-control(name="code", rows="10", cols="50") #{fields.code}
+                        .form-group
+                            label(for="outfile") Output HTML
+                            input#outfile.form-control(name="outfile", value="#{fields.outfile}")        
+                        button#save.btn.btn-default(type="button") Save
+                    
+                        .form-group
+                            label(for="media") Upload Media
+                            input#media(type="file", name="upload")
+                        input#from(type="hidden", name="from", value="edit")
+                        button#upload.btn.btn-default(type="submit") Upload
+                    
+                #item-holder
+                    strong Media List
+                    ol#media-list
+                        each val in media
+                            li= val
+            .col-md-6
+                #result

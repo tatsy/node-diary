@@ -4,25 +4,17 @@ block content
     .container
         .row
             .col-md-6
-                #item-holder
-                    form(action="/", enctype="multipart/form-data", method="post")
-                        .form-group
-                            label(for="code") Markdown Code
-                            textarea#code.form-control(name="code", rows="10", cols="50") #{fields.code}
-                        .form-group
-                            label(for="outfile") Output HTML
-                            input#outfile.form-control(name="outfile", value="#{fields.outfile}")        
-                        button#save.btn.btn-default(type="button") Save
-                    
-                        .form-group
-                            label(for="media") Upload Media
-                            input#media(type="file", name="upload")
-                        button#upload.btn.btn-default(type="submit") Upload
-                    
-                #item-holder
-                    strong Media List
-                    ol#media-list
-                        each val in media
-                            li= val
+                strong Add New
+                form(action="/edit", enctype="multipart/form-data", method="post")
+                    .form-group
+                        label(for="title") Title
+                        input#title.form-control(name="title")
+                    input#from(type="hidden", name="from", value="index")
+                    button.btn.btn-default(type="submit") Edit
             .col-md-6
-                #result
+                    each val in articles
+                        form#article-form(action="/edit", enctype="multipart/form-data", method="post")
+                            label= val.name
+                            input#articleId(type="hidden", name="articleId", value="#{val.md5}")
+                            input#from(type="hidden", name="from", value="index")
+                            button.btn.btn-default(type="subimt") Edit

@@ -13,11 +13,10 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
-app.get('/', routes.get);
+app.get('/', routes.index);
+app.post('/edit', routes.edit);
 
-app.post('/', routes.post);
-
-io.on('connection', connect.on);
+io.of('/edit').on('connection', connect.on);
 
 http.listen(3000, function() {
     console.log('listening on *:3000');
