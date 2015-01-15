@@ -1,9 +1,11 @@
 extends layout
 
+block additional-js
+
 block content
     .container
         .row
-            .col-md-6
+            .col-md-4
                 strong Add New
                 form(action="/edit", enctype="multipart/form-data", method="post")
                     .form-group
@@ -11,10 +13,16 @@ block content
                         input#title.form-control(name="title")
                     input#from(type="hidden", name="from", value="index")
                     button.btn.btn-default(type="submit") Edit
-            .col-md-6
+            .col-md-8
+                strong Articles
+                #article-table
                     each val in articles
-                        form#article-form(action="/edit", enctype="multipart/form-data", method="post")
-                            label= val.name
-                            input#articleId(type="hidden", name="articleId", value="#{val.md5}")
-                            input#from(type="hidden", name="from", value="index")
-                            button.btn.btn-default(type="subimt") Edit
+                        .row
+                            form#article-form(action="/edit", enctype="multipart/form-data", method="post")
+                                .col-md-4= val.datetime
+                                .col-md-4
+                                    a(href="#{val.link}", target="_blank"): span.article-title= val.title
+                                    input#articleId(type="hidden", name="articleId", value="#{val.id}")
+                                    input#from(type="hidden", name="from", value="index")
+                                .col-md-4
+                                    div(align="right"): button.btn.btn-default(type="subimt") Edit

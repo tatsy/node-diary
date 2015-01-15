@@ -1,29 +1,58 @@
 var socket;
+var nKeyType = 0;
+
+function codeSave() {
+    articleInfo.code = $('#code').val();
+    socket.emit('code save', articleInfo);
+}
+
+function codeUpdate() {
+    socket.emit('code update', $('#code').val());
+}
 
 $(document).ready(function() {
-    socket = io();
+    socket = io('/edit');
 
     $('#save').click(function(){
-        var md = $('#code').val();
-        socket.emit('code save', {code: md, outfile: $('#outfile').val()});
+        codeSave();
         return false;
     });
 
     $('#code').keyup(function() {
-        var md = $('#code').val();
-        socket.emit('code update', md);
+        nKeyType++;
+        if(nKeyType > 50) {
+            codeSave();
+            nKeyType = 0;
+        }
+        codeUpdate();
         return false;
     });
 
+    $('#code').keydown(function(e) {
+        if(e.ctrlKey) {
+            if(e.keyCode == 83) {
+                codeSave();
+                return false;
+            }
+        }
+    })
+
     socket.on('connected', function(data) {
-        console.log(data.files);
+        articleInfo.code = $('#code').val();
+        socket.emit('connected', articleInfo);
+        codeUpdate();
+    });
+
+    socket.on('code saved', function(when) {
+        $('#last-saved').text('Last saved: ' + when);
+    });
+
+    socket.on('file list update', function(files) {
         $('#media-list').empty();
-        $.each(data.files, function() {
+        $.each(files, function() {
             $('#media-list').append($('<li>').text(this));
         });
-        var md = $('#code').val();
-        socket.emit('code update', md);
-    })
+    });
 
     socket.on('code converted', function(html) {
         $('#result').html(html);
@@ -31,10 +60,7 @@ $(document).ready(function() {
 });
 
 function onClickPlayButton(button) {
-    console.log("click");
     var buttonText = $(button).text();
-    console.log(buttonText);
-    console.log($(button).parents());
     $.each($(button).parents().find('table').find('video'), function() {
         if(buttonText == "Play") {
             this.play();
@@ -42,5 +68,6 @@ function onClickPlayButton(button) {
             this.pause();
         }
     });
-    $(this).text(buttonText === "Play" ? "Pause" : "Play");
+    console.log(buttonText);
+    $(button).text(buttonText === "Play" ? "Pause" : "Play");
 }

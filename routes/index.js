@@ -5,6 +5,7 @@ var crypto = require('crypto');
 var childProc = require('child_process');
 
 var am = require('../lib/article-manager');
+var df = require('../lib/date-formatter');
 
 var articleDir = './public/articles/';
 
@@ -17,6 +18,7 @@ exports.index = function(req, res) {
         if(!articles) {
             articles = [];
         }
+
         res.render('index', { articles: articles });
     });
 }
@@ -27,12 +29,11 @@ exports.edit = function(req, res) {
         if(fields.from == "index") {
             if(fields.articleId === undefined) {
                 var md5 = crypto.createHash('md5');
-                var orgText = fields.title + (new Date()).getTime().toString();
-                console.log(orgText);
+                var datetime = (new Date()).getTime();
+                var orgText = fields.title + datetime.toString();
                 md5.update(orgText);
-
-                var folder = am.dir + md5.digest('hex');
-
+                var articleId = md5.digest('hex');
+                var folder = am.dir + articleId;
 
                 fs.mkdir(folder, function(err) {
                     if(err) {
@@ -40,30 +41,41 @@ exports.edit = function(req, res) {
                         console.log(err.code);
                     }
 
-                    fs.writeFileSync(folder + '/info.txt', fields.title);
+                    fs.closeSync(fs.openSync(folder + '/index.html', 'a'));
+                    fs.closeSync(fs.openSync(folder + '/index.md', 'a'));
+
+                    fs.mkdir(folder + '/upload', function(err) {
+                        if(err) {
+                            console.log('Failed to make a new directory');
+                            console.log(err.code);
+                        }
+                    });
+
+                    var formatDate = df.format(datetime);
+                    fs.writeFileSync(folder + '/info.txt', JSON.stringify({ title: fields.title, datetime: formatDate }));
 
                     var formData = {
                         title: fields.title,
+                        articleId: articleId,
                         code: [''],
-                        outfile: ['README.html']
                     };
 
                     res.render('edit', {
                         fields: formData,
-                        media: []
                     });
                 });
             } else {
-                var title = am.getTitle(fields.articleId);
+                console.log("Edit existing article.");
+                var info = am.getInfo(fields.articleId);
+                var code  = fs.readFileSync(am.dir + '/' + fields.articleId + '/index.md');
                 var formData = {
-                    title: title,
-                    code: [''],
-                    outfile: ['README.html']
+                    title: info.title,
+                    articleId: fields.articleId,
+                    code: [code],
                 };
 
                 res.render('edit', {
                     fields: formData,
-                    media: []
                 });
             }
         }
@@ -72,11 +84,12 @@ exports.edit = function(req, res) {
             var tempPath = files.upload[0].path;
             var ext = path.extname(orgname);
             var basename = path.basename(orgname, ext);
+            var uploadDir = am.dir + fields.articleId + '/upload/';
 
             console.log('extension is: ' + ext);
 
             if(ext === '.jpg' || ext === '.png' || ext === '.jpeg' || ext === '.gif') {
-                var targetPath = './public/upload/' + basename + ext;
+                var targetPath = uploadDir + basename + ext;
                 fs.rename(tempPath, targetPath, function() {
                     if(err) {
                         console.log(err);
@@ -92,7 +105,7 @@ exports.edit = function(req, res) {
             }
 
             if(ext === '.avi' || ext === '.wmv' || ext === '.mp4' || ext === '.mpg' || ext == '.mov') {
-                var targetPath = './public/upload/' + basename + '.mp4';
+                var targetPath = uploadDir + basename + '.mp4';
                 var ffmpeg = childProc.spawn('ffmpeg', [
                     '-i', tempPath,
                     '-f', 'mp4',
@@ -122,15 +135,8 @@ exports.edit = function(req, res) {
                 });
             }
 
-            fs.readdir('./public/upload/', function(err, uploadedFiles) {
-                if(!uploadedFiles) {
-                    uploadedFiles = [];
-                }
-
-                res.render('index', {
-                    fields: fields,
-                    media: uploadedFiles
-                });
+            res.render('edit', {
+                fields: fields,
             });
         }
     });

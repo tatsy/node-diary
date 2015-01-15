@@ -37,3 +37,23 @@ div#item-holder {
     margin-bottom: 5px;
     border: 1px #ccc solid;
 }
+
+button#playButton {
+    margin: 10px;
+}
+
+div#article-table div.row {
+    padding: 3px;
+}
+
+div#article-table div.row:nth-child(odd) {
+    background-color: #eee;
+}
+
+div#article-table div.row:nth-child(even) {
+    background-color: #ccc;
+}
+
+.article-title {
+    font-size: 15pt;
+}
