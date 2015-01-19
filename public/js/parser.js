@@ -18,6 +18,11 @@ $(document).ready(function() {
         return false;
     });
 
+    $('#evernote').click(function() {
+        articleInfo.code = $('#code').val();
+        socket.emit('save evernote', articleInfo);
+    });
+
     $('#code').keyup(function() {
         nKeyType++;
         if(nKeyType > 50) {
@@ -35,7 +40,7 @@ $(document).ready(function() {
                 return false;
             }
         }
-    })
+    });
 
     socket.on('connected', function(data) {
         articleInfo.code = $('#code').val();

@@ -1,10 +1,12 @@
 {
   "name": "node-diary",
   "version": "0.1.0",
-  "author" : "tatsy",
+  "author": "tatsy",
   "description": "A diary tool using Node.js",
-  "repository" : "https://github.com/tatsy/node-diary.git",
+  "repository": "https://github.com/tatsy/node-diary.git",
+  "start" : "node app.js",
   "dependencies": {
+    "evernote": "^1.25.4",
     "express": "^4.10.7",
     "highlight.js": "^8.4.0",
     "jade": "^1.8.2",
