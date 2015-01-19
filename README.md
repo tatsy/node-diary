@@ -8,18 +8,25 @@ node-diary
 The installation requires two steps.
 
 __Step 1.__ In the application root, execute,
+
 ```bash
 npm install
 ```
 
 __Step 2.__ In the __node_modules__ directory,
+
 ```bash
 git clone https://github.com/tatsy/marked.git
 cd marked
 git checkout imgsize
 ```
-
 (I have sent pull request to the original marked authors, so please wait for more simple installtion.)
+
+__Step 3.__ Enable Evernote clipping
+
+Please get **developer token** from [https://www.evernote.com/api/DeveloperToken.action](https://www.evernote.com/api/DeveloperToken.action).
+
+Rename ```config.template.json``` to ```config.json``` and paste your developer token in the file.
 
 ## Usage
 

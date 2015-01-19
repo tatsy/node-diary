@@ -88,28 +88,12 @@ exports.edit = function(req, res) {
 
             console.log('extension is: ' + ext);
 
-            if(ext === '.jpg' || ext === '.png' || ext === '.jpeg' || ext === '.gif') {
-                var targetPath = uploadDir + basename + ext;
-                fs.rename(tempPath, targetPath, function() {
-                    if(err) {
-                        console.log(err);
-                        throw err;
-                    }
-                    fs.unlink(tempPath, function() {
-                        if(err) {
-                            console.log(err);
-                            throw err;
-                        }
-                    });
-                });
-            }
-
             if(ext === '.avi' || ext === '.wmv' || ext === '.mp4' || ext === '.mpg' || ext == '.mov') {
                 var targetPath = uploadDir + basename + '.mp4';
                 var ffmpeg = childProc.spawn('ffmpeg', [
-                    '-i', tempPath,
-                    '-f', 'mp4',
-                    '-y', targetPath
+                '-i', tempPath,
+                '-f', 'mp4',
+                '-y', targetPath
                 ]);
 
                 ffmpeg.stdout.on('data', function(data) {
@@ -129,6 +113,22 @@ exports.edit = function(req, res) {
                     console.log('Movie successfully converted!!');
                     fs.unlink(tempPath, function(err) {
                         if(err) {
+                            throw err;
+                        }
+                    });
+                });
+            }
+            else {
+                var targetPath = uploadDir + basename + ext;
+                console.log(targetPath);
+                fs.rename(tempPath, targetPath, function() {
+                    if(err) {
+                        console.log(err);
+                        throw err;
+                    }
+                    fs.unlink(tempPath, function() {
+                        if(err) {
+                            console.log(err);
                             throw err;
                         }
                     });

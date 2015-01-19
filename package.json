@@ -4,7 +4,9 @@
   "author": "tatsy",
   "description": "A diary tool using Node.js",
   "repository": "https://github.com/tatsy/node-diary.git",
-  "start" : "node app.js",
+  "scripts" : {
+    "start" : "node app.js"
+  },
   "dependencies": {
     "evernote": "^1.25.4",
     "express": "^4.10.7",
