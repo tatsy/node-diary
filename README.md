@@ -7,12 +7,12 @@ node-diary
 
 The installation requires two steps.
 
-1. In the application root, execute,
+__Step 1.__ In the application root, execute,
 ```bash
 npm install
 ```
 
-2. In the __node_modules__ directory,
+__Step 2.__ In the __node_modules__ directory,
 ```bash
 git clone https://github.com/tatsy/marked.git
 cd marked
@@ -23,8 +23,8 @@ git checkout imgsize
 
 ## Usage
 
-1. Execute __start-diary.cmd__ (Windows), or start-diary.sh (Linux and MacOS).
-2. Open __http://localhost:3000__ with your brouser.
+1. Execute **start-diary.cmd** (Windows), or **start-diary.sh** (Linux and MacOS).
+2. Open [http://localhost:3000]() with your brouser.
 
 ## Special Markdown
 
