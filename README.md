@@ -28,7 +28,7 @@ git checkout imgsize
 
 ## Special Markdown
 
-### Support <video> tag
+### Support ```<video>``` tag
 
 ```markdown
 $[](your_movie.mp4)
