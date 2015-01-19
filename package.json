@@ -1,7 +1,9 @@
 {
-  "name": "Diary",
-  "version": "0.0.1",
-  "description": "Diary",
+  "name": "node-diary",
+  "version": "0.1.0",
+  "author" : "tatsy",
+  "description": "A diary tool using Node.js",
+  "repository" : "https://github.com/tatsy/node-diary.git",
   "dependencies": {
     "express": "^4.10.7",
     "highlight.js": "^8.4.0",
