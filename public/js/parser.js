@@ -52,6 +52,10 @@ $(document).ready(function() {
         $('#last-saved').text('Last saved: ' + when);
     });
 
+    socket.on('save evernote success', function() {
+        alert('Evernote saved');
+    });
+
     socket.on('file list update', function(files) {
         $('#media-list').empty();
         $.each(files, function() {
