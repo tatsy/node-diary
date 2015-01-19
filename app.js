@@ -9,7 +9,9 @@ var mp   = require('multiparty');
 var routes = require('./routes');
 var connect = require('./lib/connect.js');
 
-app.use(express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + '/public'));
+app.use('/highlight', express.static(__dirname + '/node_modules/highlight.js'));
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
