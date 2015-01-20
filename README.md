@@ -59,3 +59,7 @@ is interpreted as
 ```html
 <img src="your_image_01.jpg" />
 ```
+
+### Acknowledgment
+
+* I Thank Michael Dolejs for publicly providing Evernote icon in [IconFinder](https://www.iconfinder.com/).

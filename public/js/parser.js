@@ -53,7 +53,7 @@ $(document).ready(function() {
     });
 
     socket.on('save evernote success', function() {
-        alert('Evernote saved');
+        $('#enSavedModal').modal('show');
     });
 
     socket.on('file list update', function(files) {

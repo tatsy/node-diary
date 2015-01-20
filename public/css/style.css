@@ -38,6 +38,10 @@ div#item-holder {
     border: 1px #ccc solid;
 }
 
+div#item-holder button {
+    margin-right: 5px;
+}
+
 button#playButton {
     margin: 10px;
 }

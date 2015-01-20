@@ -33,7 +33,8 @@ block content
                             label(for="code") Markdown Code
                             textarea#code.form-control(name="code", rows="10", cols="50") #{fields.code}
                         button#save.btn.btn-default(type="button") Save 
-                        button#evernote.btn.btn-default(type="button") Evernote
+                        button#evernote.btn(type="button") 
+                            img(src="/img/evernote.png", width="30")
                         .form-group
                             label(for="media") Upload Media
                             input#media(type="file", name="upload")
@@ -48,3 +49,16 @@ block content
 
             .col-md-6
                 #result
+                    
+    .modal.fade#enSavedModal(tabindex="-1", role="dialog", aria-labelledby="everNoteSaved", aria-hidden="true")
+        .modal-dialog.modal-sm
+            .modal-content
+                .modal-header
+                    button.close(type="button", data-dismiss="modal", aria-label="Close")
+                        span(aria-hidden="true") &times;
+                    h4.modal-title#modalLabel Message
+                .modal-body
+                    | Successfully saved to Evernote!!
+                .modal-footer
+                    button.btn.btn-default(type="button", data-dismiss="modal") Close
+                    
