@@ -16,6 +16,7 @@
     "json": "^9.0.2",
     "marked": "^0.3.2",
     "multiparty": "^4.1.0",
+    "should": "^4.6.1",
     "socket.io": "^1.2.1"
   }
 }

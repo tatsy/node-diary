@@ -1,3 +1,4 @@
 {
-    "developerToken" : "your developper token here"
+    "developerToken" : "your developper token here",
+    "sandbox" : false
 }

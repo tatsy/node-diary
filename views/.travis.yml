@@ -1,0 +1,15 @@
+language: node.js
+node.js:
+    1.0
+bofore_install:
+
+before_script:
+
+script:
+    - mocha
+
+notifications:
+    emails:
+        tatsy.mail@gmail.com
+    on_success: change
+    on_failure: always
