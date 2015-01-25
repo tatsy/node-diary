@@ -1,11 +1,11 @@
 language: node_js
 node_js:
     - 0.10
-before_script:
-    - npm install
-    - npm install -g mocha
 script:
-    - mocha
+    - make test-cov
+after_script:
+    - make coveralls
+    - make clean
 
 notifications:
     email:
