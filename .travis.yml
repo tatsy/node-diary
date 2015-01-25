@@ -1,10 +1,9 @@
 language: node
 node:
     1.0
-bofore_install:
+before_script:
     - mv /etc/localtime /etc/localtime.bak
     - ln - s/usr/share/zoneinfo/Japan /etc/localtime
-before_script:
     - npm install
     - npm install -g mocha
 script:
@@ -12,6 +11,6 @@ script:
 
 notifications:
     email:
-        recipients: hoge@localhost
+        recipients: tatsy.mail@gmail.com
         on_success: change
         on_failure: always
