@@ -1,7 +1,7 @@
 node-diary
 ===
 
-[![Build Status](https://secure.travis-ci.org/tatsy/node-diary.png?branch=master](https://travis-ci.org/tatsy/node-diary)
+![Build Status](https://secure.travis-ci.org/tatsy/node-diary.png?branch=master)
 
 > A simple diary tool using Node.js
 
