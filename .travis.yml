@@ -2,8 +2,6 @@ language: node
 node:
     1.0
 before_script:
-    - mv /etc/localtime /etc/localtime.bak
-    - ln - s/usr/share/zoneinfo/Japan /etc/localtime
     - npm install
     - npm install -g mocha
 script:
