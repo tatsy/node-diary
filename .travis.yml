@@ -1,5 +1,5 @@
-language: node.js
-node.js:
+language: node
+node:
     1.0
 bofore_install:
 
@@ -9,7 +9,7 @@ script:
     - mocha
 
 notifications:
-    emails:
-        tatsy.mail@gmail.com
-    on_success: change
-    on_failure: always
+    email:
+        recipients: hoge@localhost
+        on_success: change
+        on_failure: always
