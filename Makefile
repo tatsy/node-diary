@@ -5,7 +5,7 @@ test-cov: clean
 	$(istanbul) cover $(mocha) -- -R spec test/*
 
 coveralls:
-	cat ./coverage/lcov.info | ./node_modules/coveralls/bin/converalls.js;
+	cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js;
 
 clean:
 	rm -rf coverage
