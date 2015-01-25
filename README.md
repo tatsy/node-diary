@@ -2,7 +2,7 @@ node-diary
 ===
 
 [![Build Status](https://secure.travis-ci.org/tatsy/node-diary.png?branch=master)](https://travis-ci.org/tatsy/node-diary?branch=master)
-[![Coverage Status](https://coveralls.io/repos/tatsy/node-diary/badge.png?branch=master)](https://coveralls.io/r/tatsy/node-diary?branch=master)
+[![Coverage Status](https://coveralls.io/repos/tatsy/node-diary/badge.svg?branch=master)](https://coveralls.io/r/tatsy/node-diary?branch=master)
 
 > A simple diary tool using Node.js
 
