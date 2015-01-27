@@ -6,8 +6,8 @@ install:
     - npm install
     - cd node_modules
     - git clone https://github.com/tatsy/marked.git
-    - git fetch origin master
-    - git checkout imgsize
+    - git branch
+    - git checkout -b imgsize
     - cd ..
 script:
     - make test-cov
