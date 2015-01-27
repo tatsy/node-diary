@@ -1,25 +1,45 @@
+var request = require('supertest');
 var routes = require('../routes');
 
 require('should');
 
 describe('routes', function() {
-    var req, res;
-    beforeEach(function() {
-        req = {};
-        res = {
-            redirect: function() {},
-            render : function() {}
-        }
+    var url = 'http://localhost:3000';
+
+    before(function(done) {
+        done();
     });
 
-    describe('index', function() {
-        it("Should display index page with title", function(done) {
-            res.render = function(view, vars) {
-                view.should.equal('index');
-                // vars.title.should.eql('Express');
+    it('Should display index page', function() {
+        describe('index', function() {
+            request(url).get('/')
+            .send()
+            .end(function(err, res) {
+                if(err) {
+                    throw err;
+                }
+                res.should.have.status(400);
                 done();
+            });
+        });
+    });
+
+    it('Should display editor page', function() {
+        describe('edit', function() {
+            var articleInfo = {
+                id: '0000000000',
+                title: 'Test article'
             };
-            routes.index(req, res);
+
+            request(url).post('/edit')
+            .send(articleInfo)
+            .end(function(err, res) {
+                if(err) {
+                    throw err;
+                }
+                res.should.have.status(400);
+                done();
+            });
         });
     });
 });
