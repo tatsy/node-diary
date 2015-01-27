@@ -38,17 +38,6 @@ Rename ```config.template.json``` to ```config.json``` and paste your developer 
 
 ## Special Markdown
 
-### Support ```<video>``` tag
-
-```markdown
-$[](your_movie.mp4)
-```
-
-is interpreted as
-
-```html
-<video src="your_movie.mp4" controls></video>
-```
 ### Number-based media specification
 
 After you upload media files (image or viode files), you can specify them with a notation like __%1__.
@@ -63,6 +52,33 @@ is interpreted as
 <img src="your_image_01.jpg" />
 ```
 
-### Acknowledgment
+### Support ```<video>``` tag
+
+```markdown
+$[](your_movie.mp4)
+```
+
+is interpreted as
+
+```html
+<video src="your_movie.mp4" controls></video>
+```
+
+In addition, you can upload source code file as well as media files. Specifying a source file with __%1__ will be replaced by the source code
+
+### Parallel video play
+
+You can play multiple videos by placing them into a blackquote block and use a special markdown '''[Play]'''.
+
+For example, following code will provide a play button for two videos put into a table.
+
+```markdown
+>| A | B |
+|:-:|:-:|
+|$[](%1)|$[](%2)|
+[Play]
+```
+
+## Acknowledgment
 
 * I thank Michael Dolejs for publicly providing Evernote icon in [IconFinder](https://www.iconfinder.com/).
