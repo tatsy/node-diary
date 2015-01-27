@@ -3,9 +3,10 @@ node_js:
     - 0.10
 
 install:
-    - cd node_module
+    - cd node_modules
     - git clone https://github.com/tatsy/marked.git
     - git checkout imgsize
+    - cd ..
 script:
     - make test-cov
 after_script:

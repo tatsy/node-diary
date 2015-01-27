@@ -1,5 +1,5 @@
 var request = require('supertest');
-var server  = require('../server');
+var app     = require('../app');
 
 require('should');
 
@@ -11,41 +11,23 @@ describe('routes', function() {
     });
 
     it('Should display index page', function() {
-        describe('index', function() {
-            var articles = {};
-
-            request(server)
+        describe('index', function(done) {
+            request(app)
             .get('/')
-            .send(articles)
-            .end(function(err, res) {
-                if(err) {
-                    throw err;
-                }
-                res.should.have.status(400);
-                done();
-            });
+            .expect(400, done);
         });
     });
 
-    /*
     it('Should display editor page', function() {
-        describe('edit', function() {
+        describe('edit', function(done) {
             var articleInfo = {
                 id: '0000000000',
-                title: 'Test article'.
-
+                title: 'Test article'
             };
 
-            request(server).post('/edit')
+            request(app).post('/edit')
             .send(articleInfo)
-            .end(function(err, res) {
-                if(err) {
-                    throw err;
-                }
-                res.should.have.status(400);
-                done();
-            });
+            .expect(400, done);
         });
     });
-    */
 });

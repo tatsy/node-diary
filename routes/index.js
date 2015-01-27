@@ -25,7 +25,6 @@ exports.index = function(req, res) {
 
 exports.edit = function(req, res) {
     var form = new mp.Form();
-    console.log(req);
     form.parse(req, function(err, fields, files) {
         if(fields.from == "index") {
             if(fields.articleId === undefined) {
