@@ -1,6 +1,11 @@
 language: node_js
 node_js:
     - 0.10
+
+install:
+    - cd node_module
+    - git clone https://github.com/tatsy/marked.git
+    - git checkout imgsize
 script:
     - make test-cov
 after_script:
