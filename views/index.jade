@@ -1,6 +1,7 @@
 extends layout
 
 block additional-js
+    script(type="text/javascript", src="/js/page.js")
 
 block content
     .container
@@ -14,15 +15,23 @@ block content
                     input#from(type="hidden", name="from", value="index")
                     button.btn.btn-default(type="submit") Edit
             .col-md-8
-                strong Articles
                 #article-table
-                    each val in articles
-                        .row
-                            form#article-form(action="/edit", enctype="multipart/form-data", method="post")
-                                .col-md-4= val.datetime
-                                .col-md-4
-                                    a(href="#{val.link}", target="_blank"): span.article-title= val.title
-                                    input#articleId(type="hidden", name="articleId", value="#{val.id}")
-                                    input#from(type="hidden", name="from", value="index")
-                                .col-md-4
-                                    div(align="right"): button.btn.btn-default(type="subimt") Edit
+                    strong Articles
+                    each months, year in articles
+                        .row#year-number #{year}
+                        .row#article-year
+                            .col-md-12
+                                each arts, month in months
+                                    .row#month-number #{month}
+                                    .row#article-month 
+                                        .col-md-12
+                                            each val in arts
+                                                .row
+                                                    form#article-form(action="/edit", enctype="multipart/form-data", method="post")
+                                                        .col-md-4= val.datetime
+                                                        .col-md-4
+                                                            a(href="#{val.link}", target="_blank"): span.article-title= val.title
+                                                            input#articleId(type="hidden", name="articleId", value="#{val.id}")
+                                                            input#from(type="hidden", name="from", value="index")
+                                                        .col-md-4
+                                                            div(align="right"): button#edit-button.btn.btn-default(type="subimt") Edit

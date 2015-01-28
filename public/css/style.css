@@ -50,16 +50,31 @@ div#article-table div.row {
     padding: 3px;
 }
 
-div#article-table div.row:nth-child(odd) {
-    background-color: #eee;
+div#article-month div.row:nth-child(odd) {
+    background-color: #eff;
 }
 
-div#article-table div.row:nth-child(even) {
+div#article-month div.row:nth-child(even) {
+    background-color: #ffe;
+}
+
+#year-number {
     background-color: #ccc;
 }
 
+#month-number {
+    background-color: #eee;
+}
+
 .article-title {
-    font-size: 15pt;
+    font-size: 12pt;
+    color: #333;
+}
+
+#edit-button {
+    padding: 3px;
+    width: 40px;
+    font-size: 10pt;
 }
 
 #result {

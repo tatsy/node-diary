@@ -19,6 +19,8 @@ exports.index = function(req, res) {
             articles = [];
         }
 
+        console.log(articles);
+
         res.render('index', { articles: articles });
     });
 }
