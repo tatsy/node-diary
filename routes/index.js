@@ -6,6 +6,7 @@ var childProc = require('child_process');
 
 var am = require('../lib/article-manager');
 var df = require('../lib/date-formatter');
+var config = JSON.parse(fs.readFileSync('./config.json').toString());
 
 var articleDir = './public/articles/';
 
@@ -78,6 +79,10 @@ exports.edit = function(req, res) {
 
                 res.render('edit', {
                     fields: formData,
+                    config: {
+                        host: config.host,
+                        port: config.port
+                    }
                 });
             }
         }
@@ -139,6 +144,10 @@ exports.edit = function(req, res) {
 
             res.render('edit', {
                 fields: fields,
+                config: {
+                    host: config.host,
+                    port: config.port
+                }
             });
         }
     });

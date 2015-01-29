@@ -10,7 +10,12 @@ block content
             title: "#{fields.title}",
             id: "#{fields.articleId}"
         };
-
+        var config = {
+            host: "#{config.host}",
+            port: #{config.port}
+        };
+        
+        
     .container
         nav.navbar.navbar-default
             .container-fluid

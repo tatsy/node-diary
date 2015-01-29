@@ -11,7 +11,7 @@ function codeUpdate() {
 }
 
 $(document).ready(function() {
-    socket = io('/edit');
+    socket = io('http://' + config.host + ':' + config.port + '/edit');
 
     $('#save').click(function(){
         codeSave();

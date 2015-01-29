@@ -7,6 +7,7 @@ var path = require('path');
 var mp   = require('multiparty');
 var routes = require('./routes');
 var connect = require('./lib/connect.js');
+var config  = JSON.parse(fs.readFileSync('./config.json').toString());
 
 app.use('/', express.static(__dirname + '/public'));
 app.use('/highlight', express.static(__dirname + '/node_modules/highlight.js'));
@@ -19,10 +20,8 @@ app.post('/edit', routes.edit);
 
 io.of('/edit').on('connection', connect.on);
 
-module.exports = http;
-
-http.listen(3000, function() {
-    console.log('listening on *:3000');
+http.listen(config.port, config.host, function() {
+    console.log('listening on ' + config.host + ':' + config.port.toString());
 });
 
 module.exports = app;
