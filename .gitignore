@@ -1,11 +1,11 @@
 node_modules/*
 
-public/upload/*
 public/css/bootstrap*
 public/js/bootstrap*
 public/js/jquery*
 public/fonts/*
 public/articles/*
+!public/articles/article_example
 
 *.html
 /config.json
