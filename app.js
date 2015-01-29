@@ -7,13 +7,20 @@ var path = require('path');
 var mp   = require('multiparty');
 var routes = require('./routes');
 var connect = require('./lib/connect.js');
-var config  = JSON.parse(fs.readFileSync('./config.json').toString());
+
+var configFile = './config.json';
+if(!fs.existsSync(configFile)) {
+    console.log('config.json does not exists. use template file.');
+    configFile = './config.template.json';
+}
+var config  = JSON.parse(fs.readFileSync(configFile).toString());
 
 app.use('/', express.static(__dirname + '/public'));
 app.use('/highlight', express.static(__dirname + '/node_modules/highlight.js'));
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
+app.set('config', config);
 
 app.get('/', routes.index);
 app.post('/edit', routes.edit);

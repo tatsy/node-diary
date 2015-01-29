@@ -6,7 +6,6 @@ var childProc = require('child_process');
 
 var am = require('../lib/article-manager');
 var df = require('../lib/date-formatter');
-var config = JSON.parse(fs.readFileSync('./config.json').toString());
 
 var articleDir = './public/articles/';
 
@@ -27,7 +26,8 @@ exports.index = function(req, res) {
 }
 
 exports.edit = function(req, res) {
-    var form = new mp.Form();
+    var config = module.parent.exports.get('config');
+    var form    = new mp.Form();
     form.parse(req, function(err, fields, files) {
         if(fields.from == "index") {
             if(fields.articleId === undefined) {
