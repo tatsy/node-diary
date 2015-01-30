@@ -5,7 +5,18 @@ node-diary
 [![Coverage Status](https://coveralls.io/repos/tatsy/node-diary/badge.svg?branch=master)](https://coveralls.io/r/tatsy/node-diary?branch=master)
 [![Dependency Status](https://david-dm.org/tatsy/node-diary.svg)](https://david-dm.org/tatsy/node-diary)
 
-> A simple diary tool using Node.js
+> A Markdown-based note tool especially for users who want to archive images, videos, or source codes.
+> The node-diary provides you not only Github flavored Markdown but also some original notations. 
+
+## Overview
+
+The node-diary supports following functions.
+
+* Github flavored Markdown rendering (based on [marked](https://github.com/chjj/marked))
+* Number-based media specification (for images, videos, and source codes)
+* Video uploading (ffmpeg is required)
+* Special Markdown notation for ```<video>``` tag
+* Parallel video play in the same blockquote tag
 
 ## Install
 
