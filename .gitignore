@@ -1,9 +1,5 @@
 node_modules/*
 
-public/css/bootstrap*
-public/js/bootstrap*
-public/js/jquery*
-public/fonts/*
 public/articles/*
 !public/articles/article_example
 

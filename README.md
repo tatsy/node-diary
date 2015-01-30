@@ -80,6 +80,15 @@ For example, following code will provide a play button for two videos put into a
 [Play]
 ```
 
+## Included external libraries
+
+* [Bootstrap](http://getbootstrap.com/) Copyright (c) 2011-2015, Twitter Inc. (MIT license)
+* [jQuery](http://jquery.com/) Copyright (c) 2015, The jQuery Foundation (MIT license)
+
+## Copyright and licenses
+
+Code copyright 2015, tatsy. Code released under the MIT license.
+
 ## Acknowledgment
 
 * I thank Michael Dolejs for publicly providing Evernote icon in [IconFinder](https://www.iconfinder.com/).
