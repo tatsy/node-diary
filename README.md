@@ -3,6 +3,7 @@ node-diary
 
 [![Build Status](https://travis-ci.org/tatsy/node-diary.svg?branch=master)](https://travis-ci.org/tatsy/node-diary)
 [![Coverage Status](https://coveralls.io/repos/tatsy/node-diary/badge.svg?branch=master)](https://coveralls.io/r/tatsy/node-diary?branch=master)
+[![Dependency Status](https://david-dm.org/tatsy/node-diary.svg)](https://david-dm.org/tatsy/node-diary)
 
 > A simple diary tool using Node.js
 

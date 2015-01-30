@@ -10,24 +10,28 @@ describe('routes', function() {
         done();
     });
 
-    it('Should display index page', function() {
-        describe('index', function(done) {
-            request(app)
-            .get('/')
-            .expect(400, done);
+    it('Should display index page', function(done) {
+        request(app)
+        .get('/')
+        .set('Accept', 'application/json')
+        .expect(200)
+        .end(function(err, res) {
+            if(err) return done(err);
+            done();
         });
     });
 
-    it('Should display editor page', function() {
-        describe('edit', function(done) {
-            var articleInfo = {
-                id: '0000000000',
-                title: 'Test article'
-            };
-
-            request(app).post('/edit')
-            .send(articleInfo)
-            .expect(400, done);
+    it('Should display editor page', function(done) {
+        request(app)
+        .post('/edit')
+        .type('form')
+        .field('from', 'index')
+        .field('title', 'Example Article')
+        .field('articleId', 'article_example')
+        .expect(200)
+        .end(function(err, res) {
+            if(err) return done(err);
+            done();
         });
     });
 });

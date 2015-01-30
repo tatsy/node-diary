@@ -18,9 +18,7 @@ exports.index = function(req, res) {
         if(!articles) {
             articles = [];
         }
-
-        console.log(articles);
-
+        
         res.render('index', { articles: articles });
     });
 }
