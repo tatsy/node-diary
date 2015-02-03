@@ -7,7 +7,7 @@ describe('article-manager test', function() {
         am.dir.should.equal('./public/articles/');
     });
 
-    it('first test', function() {
+    it('get article list', function() {
         am.getList(function(err, hash) {
             if(err) {
                 throw err;
