@@ -4,6 +4,7 @@ node-diary
 [![Build Status](https://travis-ci.org/tatsy/node-diary.svg?branch=master)](https://travis-ci.org/tatsy/node-diary)
 [![Coverage Status](https://coveralls.io/repos/tatsy/node-diary/badge.svg?branch=master)](https://coveralls.io/r/tatsy/node-diary?branch=master)
 [![Dependency Status](https://david-dm.org/tatsy/node-diary.svg)](https://david-dm.org/tatsy/node-diary)
+[![devDependency Status](https://david-dm.org/tatsy/node-diary/dev-status.svg)](https://david-dm.org/tatsy/node-diary#info=devDependencies)
 
 > A Markdown-based note tool especially for users who want to archive images, videos, or source codes.
 > The node-diary provides you not only Github flavored Markdown but also some original notations. 
