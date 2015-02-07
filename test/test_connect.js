@@ -1,6 +1,6 @@
+'use strict';
+
 var connect = require('../lib/connect');
-var should  = require('should');
-var chai    = require('chai');
 var fs      = require('fs');
 
 describe('connect', function() {
