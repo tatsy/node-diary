@@ -6,13 +6,13 @@ node-diary
 [![Dependency Status](https://david-dm.org/tatsy/node-diary.svg)](https://david-dm.org/tatsy/node-diary)
 
 > A Markdown-based note tool especially for users who want to archive images, videos, or source codes.
-> The node-diary provides you not only Github flavored Markdown but also some original notations. 
+> The node-diary provides you not only Github flavored Markdown but also some original notations.
 
 ## Overview
 
 The node-diary supports following functions.
 
-* Github flavored Markdown rendering (based on [marked](https://github.com/chjj/marked))
+* Github flavored Markdown rendering (based on [markdown-it](https://github.com/markdown-it/markdown-it))
 * Number-based media specification (for images, videos, and source codes)
 * Video uploading (ffmpeg is required)
 * Special Markdown notation for ```<video>``` tag
