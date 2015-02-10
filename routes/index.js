@@ -36,7 +36,6 @@ exports.edit = function(req, res) {
         var articleId = md5.digest('hex');
         var folder = am.dir + articleId;
 
-        console.log("hogehoge");
         fs.mkdir(folder, function(err) {
           if (err) {
             console.log('Failed to make a new directory');
@@ -64,6 +63,10 @@ exports.edit = function(req, res) {
 
           res.render('edit', {
             fields: formData,
+            config: {
+              host: config.host,
+              port: config.port
+            }
           });
         });
       } else {
